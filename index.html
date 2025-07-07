@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Can Yildiz – Junior Cloud Solutions Architect</title>
+    <meta
+      name="description"
+      content="Junior Cloud Solutions Architect focused on AWS, Terraform, and automation"
+    />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lucide@latest/dist/css/lucide.css"
+    />
+
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --accent: #0ea5e9;
+        --sidebar-bg: #1e293b;
+        --background: #f8fafc;
+        --card-bg: #ffffff;
+        --text: #0f172a;
+        --text-light: #64748b;
+        --pill-bg: #e0f2fe;
+        --softskill-bg: #f1f5f9;
+        --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        --radius: 10px;
+        --transition: all 0.3s ease;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background: #0f172a;
+          --card-bg: #1e293b;
+          --text: #f1f5f9;
+          --text-light: #cbd5e1;
+          --pill-bg: rgba(37, 99, 235, 0.2);
+          --softskill-bg: rgba(30, 41, 59, 0.7);
+          --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--background);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        padding: 20px;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      a:hover {
+        color: var(--accent);
+      }
+      ul {
+        list-style: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      /* Layout */
+      .resume-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 30px;
+      }
+      @media (max-width: 900px) {
+        .resume-wrapper {
+          flex-direction: column;
+        }
+      }
+
+      /* Sidebar */
+      aside {
+        background: var(--sidebar-bg);
+        color: white;
+        border-radius: var(--radius);
+        padding: 40px 30px;
+        flex: 0 0 340px;
+        box-shadow: var(--shadow);
+        align-self: flex-start;
+      }
+      .profile-header {
+        text-align: center;
+        padding-bottom: 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 25px;
+      }
+      .profile-header h1 {
+        font-size: 2.4rem;
+        margin-bottom: 5px;
+      }
+      .role {
+        font-size: 1.25rem;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .profile-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 3px solid var(--accent);
+      }
+      .sidebar-section {
+        margin-bottom: 30px;
+      }
+      .sidebar-section h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--accent);
+      }
+      .lucide {
+        width: 20px;
+        height: 20px;
+      }
+      .sidebar-section ul li {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+        align-items: flex-start;
+      }
+      .sidebar-section ul li .lucide {
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        background: rgba(14, 165, 233, 0.15);
+        color: white;
+        padding: 6px 14px;
+        font-size: 0.85rem;
+        border-radius: 50px;
+        font-weight: 500;
+      }
+
+      /* Main Content */
+      main {
+        flex: 1;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: var(--shadow);
+      }
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+      .section {
+        margin-bottom: 35px;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--primary);
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--primary);
+      }
+      .item {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed rgba(100, 116, 139, 0.2);
+      }
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 5px;
+      }
+      .item-title {
+        font-weight: 700;
+        font-size: 1.15rem;
+      }
+      .item-date {
+        color: var(--text-light);
+        font-weight: 500;
+      }
+      .item-subtitle {
+        font-style: italic;
+        color: var(--primary);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .item ul {
+        padding-left: 20px;
+      }
+      .item ul li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+      }
+      .item ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+      .soft-skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      .soft-skill-card {
+        background: var(--softskill-bg);
+        padding: 20px;
+        border-radius: var(--radius);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      .soft-skill-card h4 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+      }
+      .page-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      .page-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+      .print-only {
+        display: none;
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          padding: 0;
+          background: white !important;
+          color: black !important;
+        }
+        .resume-wrapper {
+          max-width: 100%;
+          box-shadow: none;
+        }
+        .page {
+          display: block !important;
+        }
+        .page-break {
+          page-break-before: always;
+          margin-top: 40px;
+        }
+        .pagination {
+          display: none;
+        }
+        .print-only {
+          display: block;
+        }
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-wrapper">
+      <!-- =============================== SIDEBAR =============================== -->
+      <aside>
+        <div class="profile-header">
+          <img
+            <img
+            src="./hero-banner.png"
+            alt="Can Yildiz"
+            class="profile-photo"
+          />
+          <h1>Can Yildiz</h1>
+          <div class="role">
+            <i class="lucide lucide-cloud"></i>Junior Cloud Solutions Architect
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <section class="sidebar-section" aria-labelledby="contact-h">
+          <h3 id="contact-h"><i class="lucide lucide-mail"></i>Contact</h3>
+          <ul>
+            <li><i class="lucide lucide-mail"></i>canbyildiz@outlook.de</li>
+            <li><i class="lucide lucide-phone"></i>+49 152 5947 8647</li>
+            <li><i class="lucide lucide-map-pin"></i>Hamburg, Germany</li>
+            <li><i class="lucide lucide-globe"></i>canyildiz.de</li>
+            <li>
+              <i class="lucide lucide-linkedin"></i>linkedin.com/in/canyildiz
+            </li>
+          </ul>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="sidebar-section" aria-labelledby="skills-h">
+          <h3 id="skills-h">
+            <i class="lucide lucide-cpu"></i>Technical Skills
+          </h3>
+          <div class="tag-list">
+            <span class="tag">AWS (EC2, S3, IAM)</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Python</span>
+            <span class="tag">Azure AD</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Bash/PowerShell</span>
+            <span class="tag">CI/CD Pipelines</span>
+            <span class="tag">Cloud Security</span>
+            <span class="tag">Cost Optimization</span>
+            <span class="tag">Infrastructure as Code</span>
+          </div>
+        </section>
+
+        <!-- Soft Skills -->
+        <section class="sidebar-section" aria-labelledby="soft-h">
+          <h3 id="soft-h"><i class="lucide lucide-users"></i>Soft Skills</h3>
+          <div class="tag-list">
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Team Collaboration</span>
+            <span class="tag">Technical Documentation</span>
+            <span class="tag">Agile Methodology</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Time Management</span>
+            <span class="tag">Adaptability</span>
+            <span class="tag">Attention to Detail</span>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="sidebar-section" aria-labelledby="lang-h">
+          <h3 id="lang-h"><i class="lucide lucide-languages"></i>Languages</h3>
+          <ul>
+            <li><i class="lucide lucide-check"></i>German: Native</li>
+            <li><i class="lucide lucide-check"></i>English: Expert</li>
+            <li><i class="lucide lucide-check"></i>Türkish: Expert</li>
+            <li><i class="lucide lucide-check"></i>Spanish: Beginner</li>
+          </ul>
+        </section>
+
+        <!-- Certifications -->
+        <section class="sidebar-section" aria-labelledby="certs-h">
+          <h3 id="certs-h">
+            <i class="lucide lucide-award"></i>Certifications
+          </h3>
+          <ul>
+            <li>
+              <i class="lucide lucide-badge-check"></i>AWS Certified Cloud
+              Practitioner
+            </li>
+            <li>
+              <i class="lucide lucide-badge-check"></i>Professional Scrum
+              Master™ (PSM™)
+            </li>
+            <li>
+              <i class="lucide lucide-clipboard-list"></i>Terraform Associate
+              (in progress)
+            </li>
+            <li>
+              <i class="lucide lucide-clipboard-list"></i>AWS Solutions
+              Architect (in progress)
+            </li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- =============================== MAIN CONTENT =============================== -->
+      <main>
+        <!-- Page 1 -->
+        <div class="page active" id="page1">
+          <!-- Summary -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-user-check"></i>Professional Profile
+            </h2>
+            <p>
+              Passionate Junior Cloud Solutions Architect with AWS certification
+              and hands-on experience designing secure, scalable cloud
+              infrastructure. Specialized in Infrastructure as Code (Terraform)
+              and automation with Python. Currently pursuing AWS Solutions
+              Architect and Terraform certifications. Committed to developing
+              efficient cloud solutions that deliver business value through
+              automation and best practices.
+            </p>
+          </section>
+
+          <!-- Experience -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-briefcase"></i>Professional Experience
+            </h2>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">Cloud Infrastructure Intern</div>
+                <div class="item-date">Dec 2023 - Jan 2025</div>
+              </div>
+              <div class="item-subtitle">
+                <i class="lucide lucide-building"></i>CPC Profiling (Montblanc)
+                - Hamburg
+              </div>
+              <ul>
+                <li>
+                  <i class="lucide lucide-zap"></i> Automated AWS resource
+                  provisioning using Terraform, reducing environment setup time
+                  from 4 hours to 45 minutes (83% improvement)
+                </li>
+                <li>
+                  <i class="lucide lucide-pie-chart"></i> Developed Python
+                  scripts to identify unused cloud resources, improving cost
+                  visibility and reducing monthly overhead by 12%
+                </li>
+                <li>
+                  <i class="lucide lucide-shield"></i> Implemented CIS
+                  Benchmark-aligned security baselines for Azure AD identity
+                  management
+                </li>
+                <li>
+                  <i class="lucide lucide-file-text"></i> Documented
+                  Infrastructure-as-Code pipelines and deployment processes,
+                  reducing onboarding time by 30%
+                </li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">IT System Administrator</div>
+                <div class="item-date">2022 - 2023</div>
+              </div>
+              <div class="item-subtitle">
+                <i class="lucide lucide-server"></i>HSL Logistik GmbH - Hamburg
+              </div>
+              <ul>
+                <li>
+                  <i class="lucide lucide-arrow-right-circle"></i> Migrated 250+
+                  user accounts and group policies from on-premise AD to Azure
+                  AD
+                </li>
+                <li>
+                  <i class="lucide lucide-hard-drive"></i> Created automated
+                  backup systems in Python, saving 15 hours of manual work
+                  monthly
+                </li>
+                <li>
+                  <i class="lucide lucide-shield-alert"></i> Performed
+                  vulnerability scans on VMware hosts and remediated critical
+                  findings
+                </li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">Technical Operator</div>
+                <div class="item-date">Oct 2021 - Oct 2022</div>
+              </div>
+              <div class="item-subtitle">
+                <i class="lucide lucide-monitor"></i>Johnson & Johnson -
+                Norderstedt
+              </div>
+              <ul>
+                <li>
+                  <i class="lucide lucide-settings"></i> Operated validated
+                  medical equipment under strict GMP guidelines
+                </li>
+                <li>
+                  <i class="lucide lucide-file-check"></i> Maintained
+                  comprehensive IQ/OQ/FAT documentation for compliance
+                </li>
+                <li>
+                  <i class="lucide lucide-wrench"></i> Troubleshot technical
+                  issues in regulated medical environment
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Soft Skills -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-heart"></i>Key Soft Skills
+            </h2>
+            <div class="soft-skills">
+              <div class="soft-skill-card">
+                <h4><i class="lucide lucide-puzzle"></i>Problem Solving</h4>
+                <p>
+                  Demonstrated ability to troubleshoot complex technical issues
+                  and develop innovative cloud solutions
+                </p>
+              </div>
+              <div class="soft-skill-card">
+                <h4>
+                  <i class="lucide lucide-messages-square"></i>Technical
+                  Communication
+                </h4>
+                <p>
+                  Effectively translate technical concepts between development
+                  teams and business stakeholders
+                </p>
+              </div>
+              <div class="soft-skill-card">
+                <h4>
+                  <i class="lucide lucide-gantt-chart-square"></i>Agile Mindset
+                </h4>
+                <p>
+                  Certified Scrum Master with experience in iterative
+                  development processes
+                </p>
+              </div>
+              <div class="soft-skill-card">
+                <h4><i class="lucide lucide-file-text"></i>Documentation</h4>
+                <p>
+                  Create clear technical documentation for systems and
+                  operational processes
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- End Page 1 -->
+
+        <!-- Page 2 -->
+        <div class="page" id="page2">
+          <!-- Projects -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-codesandbox"></i>Technical Projects
+            </h2>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">AWS Terraform Automation Framework</div>
+                <div class="item-date">
+                  <i class="lucide lucide-calendar"></i>2024
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <i class="lucide lucide-layers"></i> Designed modular
+                  Terraform configurations for VPCs, subnets, EC2 instances, RDS
+                  databases, and security groups
+                </li>
+                <li>
+                  <i class="lucide lucide-git-branch"></i> Implemented
+                  version-controlled deployments using GitHub Actions for
+                  consistent environment provisioning
+                </li>
+                <li>
+                  <i class="lucide lucide-bar-chart"></i> Reduced deployment
+                  errors by 75% through standardized templates and validation
+                  checks
+                </li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">Cloud Resource Optimizer</div>
+                <div class="item-date">
+                  <i class="lucide lucide-calendar"></i>2024
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <i class="lucide lucide-search"></i> Developed Python tool
+                  using AWS SDK (Boto3) to detect and tag unused EC2/S3
+                  resources
+                </li>
+                <li>
+                  <i class="lucide lucide-file-bar-chart"></i> Integrated
+                  findings into weekly cost reports with actionable optimization
+                  recommendations
+                </li>
+                <li>
+                  <i class="lucide lucide-trending-down"></i> Reduced
+                  idle-resource spending by 10% in proof-of-concept environment
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-graduation-cap"></i>Education & Training
+            </h2>
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">
+                  IT Specialist - Application Development
+                </div>
+                <div class="item-date">2023</div>
+              </div>
+              <div class="item-subtitle">
+                <i class="lucide lucide-school"></i>CBW College - Hamburg
+              </div>
+              <ul>
+                <li>
+                  <i class="lucide lucide-cloud"></i> Focus: Cloud
+                  Infrastructure Architecture, Python Automation
+                </li>
+                <li>
+                  <i class="lucide lucide-code"></i> Key coursework: Cloud
+                  patterns, CI/CD implementation, infrastructure security
+                </li>
+                <li>
+                  <i class="lucide lucide-users"></i> Agile development
+                  methodologies and team collaboration
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Certifications -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-certificate"></i>Certifications
+            </h2>
+            <ul>
+              <li>
+                <i class="lucide lucide-badge-check"></i>
+                <strong>AWS Certified Cloud Practitioner</strong> - Valid
+                through 2026
+              </li>
+              <li>
+                <i class="lucide lucide-badge-check"></i>
+                <strong>Professional Scrum Master™ I (PSM I)</strong> -
+                Scrum.org
+              </li>
+              <li>
+                <i class="lucide lucide-clipboard-list"></i>
+                <strong>In Progress:</strong> AWS Solutions Architect Associate
+              </li>
+              <li>
+                <i class="lucide lucide-clipboard-list"></i>
+                <strong>In Progress:</strong> HashiCorp Terraform Associate
+              </li>
+              <li>
+                <i class="lucide lucide-badge-check"></i>
+                <strong>Python Institute PCAP</strong> - Programming Essentials
+              </li>
+              <li>
+                <i class="lucide lucide-badge-check"></i>
+                <strong>Java Certified Foundations Associate</strong> - Oracle
+              </li>
+            </ul>
+          </section>
+
+          <!-- Technical Skills Details -->
+          <section class="section">
+            <h2 class="section-title">
+              <i class="lucide lucide-settings"></i>Technical Expertise
+            </h2>
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">
+                  <i class="lucide lucide-cloud"></i> Cloud Platforms
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <strong>AWS:</strong> EC2, S3, IAM, VPC, CloudTrail, RDS,
+                  Lambda, CloudFormation
+                </li>
+                <li>
+                  <strong>Azure:</strong> Azure AD, Virtual Networks, Security
+                  Center
+                </li>
+                <li>
+                  <strong>Cloud Concepts:</strong> High availability,
+                  scalability, serverless architecture
+                </li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">
+                  <i class="lucide lucide-terminal"></i> Automation & IaC
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <strong>Terraform:</strong> Modular infrastructure, state
+                  management, workspaces
+                </li>
+                <li>
+                  <strong>Scripting:</strong> Python (Boto3), Bash, PowerShell,
+                  AWS CLI
+                </li>
+                <li>
+                  <strong>Automation:</strong> Resource provisioning,
+                  configuration management
+                </li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="item-title">
+                  <i class="lucide lucide-git-branch"></i> DevOps & Tools
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <strong>CI/CD:</strong> GitHub Actions, Git version control
+                </li>
+                <li>
+                  <strong>Containers:</strong> Docker basics, containerization
+                  concepts
+                </li>
+                <li>
+                  <strong>Monitoring:</strong> CloudWatch, basic
+                  Prometheus/Grafana
+                </li>
+                <li>
+                  <strong>Collaboration:</strong> Jira, Confluence, Agile
+                  methodologies
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <footer class="print-only">
+            <p>
+              Can Yildiz - Junior Cloud Solutions Architect |
+              canbyildiz@outlook.de | +49 152 5947 8647
+            </p>
+          </footer>
+        </div>
+        <!-- End Page 2 -->
+
+        <!-- Pagination -->
+        <div class="pagination no-print">
+          <button class="page-btn" onclick="showPage(1)">Page 1</button>
+          <button class="page-btn" onclick="showPage(2)">Page 2</button>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      function showPage(pageNumber) {
+        // Hide all pages
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active");
+        });
+
+        // Show selected page
+        document.getElementById(`page${pageNumber}`).classList.add("active");
+      }
+    </script>
+  </body>
+</html>
